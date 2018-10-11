@@ -4,6 +4,7 @@ import "./sass/index.scss";
 const colorPicker = document.querySelector("#colorPicker");
 console.log(colorPicker);
 const heightInput = document.querySelector("#heightInput");
+
 function GetColor() {
   let hexValue = colorPicker.value;
   return hexValue.substring(1, 7);
@@ -34,6 +35,9 @@ heightInput.addEventListener("keyup", () => {
 });
 
 function changeHandle() {
+  let value = ConvertHueToLength(ConvertHexToHue(GetColor()));
+  document.querySelector("#result").innerHTML = value;
+
   let height = heightInput.value;
   console.log(height);
   if (height.length != 0) {
